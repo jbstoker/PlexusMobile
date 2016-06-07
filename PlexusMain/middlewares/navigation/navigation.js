@@ -27,7 +27,7 @@ var avatar = '';
         }
         else
         {
-            avatar = '<img src="/public/uploads/avatar/'+req.user.avatar+'" alt="avatar">';
+            avatar = '<img src="/uploads/avatar/'+req.user.avatar+'" alt="avatar">';
         }    
 
     }

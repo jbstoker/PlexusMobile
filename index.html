@@ -9,19 +9,20 @@
       }
 
       .logSize {
+      display:none;	
       position: fixed;
       width:100%;
-      height:100px;
        top: 0;
        left: 0;
        right: 0;
+       bottom:0;
        overflow: auto;
-           }
+      }
 
       .contentSize {
       position: fixed;
       width:100%;
-       top: 200;
+       top: 0;
        left: 0;
        bottom: 0;
        right: 0;
@@ -73,7 +74,7 @@
           _.forEach(lines, function(l) {
             if(l !== "") {
               //console.log(l);
-              $serverLog.append(strip(l) + "<br/>");
+              $serverLog.append(strip(l) + "<br/>").scrollTop(1E10);
             }
           });
 

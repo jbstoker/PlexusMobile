@@ -8,8 +8,8 @@ let mainWindow;
 function createWindow () {
   mainWindow = new BrowserWindow({
                                   useContentSize:false,
-                                  skipTaskbar:false,  
-                                  kiosk: true, 
+                                  skipTaskbar:true,  
+                                  kiosk: false, 
                                   icon:__dirname+'/PlexusMain/public/images/favicons/favicon-194x194.png',
                                   title:'Plexus! Create, Read and Compose',
                                   webPreferences: {nodeIntegration: true},
@@ -17,8 +17,8 @@ function createWindow () {
                                   height: 800});
   mainWindow.loadURL(`file://${__dirname}/index.html`)
   
-  //Webtools
-  mainWindow.webContents.openDevTools();
+  //Webtools for electron, is not used by express
+  //mainWindow.webContents.openDevTools();
 
   mainWindow.on("closed", function () {
     mainWindow = null;
