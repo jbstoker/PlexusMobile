@@ -1,0 +1,428 @@
+<div class="cd-tabs">
+    <nav>
+        <ul class="cd-tabs-navigation">
+            <li><a data-content="global" class="selected" href="#0"><svg class="icon-user-setting-2"><use xlink:href="/fonts/icons.svg#icon-user-setting-2"></use></svg><span class="cd-tab-text">{{{__ 'Global'}}}<span/></a></li>
+            <li><a data-content="password" href="#0"><svg class="icon-key-1"><use xlink:href="/fonts/icons.svg#icon-key-1"></use></svg><span class="cd-tab-text">{{{__ 'Access'}}}<span/></a></li>
+        </ul> <!-- cd-tabs-navigation -->
+    </nav>
+    <ul class="cd-tabs-content">
+        <li data-content="global" class="selected">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="form-group">
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+                    <legend>{{{__ 'Set Language'}}}</legend>
+                    <ul id="setlang" class="col-xs-12 col-sm-12 col-md- 12 col-lg-12">
+                          {{#each languages}}
+                          {{langList}}
+                          {{/each}}
+                    </ul>
+                </div>
+            </div>
+            </div>
+        </li>
+        <li data-content="password">
+        <div id="AccessBox" class="col-xs-12 col-sm-12 col-md-12 col-lg-12"> 
+        <div class="row">
+            <br/>
+        </div>            
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4" id="PassWordBox">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <legend>{{{__ 'Change password'}}} <span class="updateCheck pull-right"></span></legend>        
+            <div class="form-group">
+                <div id="passwordForm">
+                    <div class="row">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label for="password1" class="control-label col-md-2">{{{__ 'New Password'}}}</label>
+                                <div class="col-md-10">
+                            <input type="password" class="form-control" name="password1" id="password1" placeholder="{{{__ 'New Password'}}}" autocomplete="off"><br>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password2" class="control-label col-md-2">{{{__ 'Repeat Password'}}}</label>
+                            <div class="col-md-10">
+                                <input type="password" class="form-control" name="password2" id="password2" placeholder="{{{__ 'Repeat Password'}}}" autocomplete="off"><br>
+                            </div>
+                        </div>
+                    <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                        <span id="password_8char" class="glyphicon glyphicon-remove" style="color:#FF0004;"></span> {{{__ '8 Characters Long'}}}<br>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                        <span id="password_ucase" class="glyphicon glyphicon-remove" style="color:#FF0004;"></span> {{{__ 'One Uppercase Letter'}}}<br>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                        <span id="password_lcase" class="glyphicon glyphicon-remove" style="color:#FF0004;"></span> {{{__ 'One Lowercase Letter'}}}<br>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                        <span id="password_num" class="glyphicon glyphicon-remove" style="color:#FF0004;"></span> {{{__ 'One Number'}}}<br>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                        <span id="password_pwmatch" class="glyphicon glyphicon-remove" style="color:#FF0004;"></span> {{{__ 'Passwords Match'}}}<br>
+                    </div>
+                    </div>
+                    <div class="row">
+                        <hr></hr>
+                    </div>     
+                        <div class="row">
+                            <button id="changePassBtn" class="pull-right btn btn-primary btn-load" data-loading-text="{{{__ 'Changing Password...'}}}">{{{__ 'Change Password'}}}</button>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+            </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4" id="PinCodeBox">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <legend>{{{__ 'Change Pincode'}}} <span class="updateCheck pull-right"></span></legend>
+            <span class="help-block pull-right"><small>{{{__ 'Pincode needs to have 6 numbers, and only numbers!'}}}</small></span>
+            <div class="form-group">
+                <div id="pincodeForm">
+                    <form class="form-horizontal" id="PinForm">
+                        <div class="form-group">
+                            <label for="pincode" class="control-label col-md-2">{{{__ 'New Pincode'}}}</label>
+                            <div class="col-md-10">
+                                <input type="password" class="form-control" name="pincode" maxlength="6" pattern="[0-9]*" id="pincode" placeholder="{{{__ 'New Pincode'}}}" autocomplete="off"><br>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="repeat_pincode" class="control-label col-md-2">{{{__ 'Repeat Pincode'}}}</label>
+                            <div class="col-md-10">
+                                <input type="password" class="form-control" name="repeat_pincode" maxlength="6" pattern="[0-9]*" id="repeat_pincode" placeholder="{{{__ 'New Pincode'}}}" autocomplete="off"><br>
+                            </div>
+                        </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm12 col-md-12 col-lg-12">
+                        <span id="pincode_match" class="glyphicon glyphicon-remove" style="color:#FF0004;"></span> {{{__ 'Pincodes Match'}}}
+                    </div>
+                </div>    
+                <div class="row">
+                        <hr></hr>
+                            <button id='changePinBtn' class="pull-right btn btn-primary btn-load" data-loading-text="{{{__ 'Changing Pincode...'}}}">{{{__ 'Change Pincode'}}}</button>
+                </div>     
+                        <div  class="row">
+                        </div>
+                    </form>
+                </div>
+            </div>
+            </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4" id="LoginNameBox">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <legend>{{{__ 'Change login name'}}} <span class="updateCheck pull-right"></span></legend>        
+            <div class="form-group">
+                <div id="nameForm">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label for="newname" class="control-label col-md-2">{{{__ 'New Name'}}}</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" name="newname" id="newname" placeholder="{{{__ 'New Name'}}}" autocomplete="off"><br>
+                            </div>
+                        </div>
+                        <div  class="row">
+                        <hr></hr>
+                            <button id='changeLoginBtn' class="pull-right btn btn-primary btn-load" data-loading-text="{{{__ 'Changing Login Name...'}}}">{{{__ 'Change Login Name'}}}</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            </div>
+            </div>
+        <div class="row">
+            <br/>
+            <br/>
+        </div> 
+        </div>
+        </li>
+    </ul> <!-- cd-tabs-content -->
+</div> <!-- cd-tabs -->
+<div class="container" id="AccesBoxModal" style="display:none;">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <form role="form" id="AccessBoxForm"  autocomplete="off">
+                        <fieldset>
+                            <div class="form-group">
+                                <input class="form-control"  autocomplete="off" placeholder="{{{__ 'E-mail'}}}" name="email" type="email" autofocus>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control"  autocomplete="off" placeholder="{{{__ 'Password'}}}" name="password" type="password" value=" ">
+                            </div>
+                            <!-- Change this to a button or input when using this as a form -->
+                            <button type="button" id="LoginBtn" class="btn btn-sm btn-primary btn-block">{{{__ 'Login'}}}</button>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#AccessBox').block({
+        message: $('#AccesBoxModal'),
+        css: {
+            backgroundColor: 'transparent',
+            width: '100%',
+            'margin-top': '10%',
+            border: '1px',
+            'z-index': '1'
+        },
+        overlayCSS: {
+            backgroundColor: '#384b5f',
+            opacity: 0.8,
+            cursor: 'wait',
+            'z-index': '1'
+        }
+    });
+    $(document).on('click', '#LoginBtn', function(event) {
+        event.preventDefault();
+        var pass = $('#AccesBoxModal [name=password]').val();
+        var email = $('#AccesBoxModal [name=email]').val();
+        $.ajax({
+            url: '/access-check',
+            type: 'POST',
+            data: {
+                email: email,
+                password: pass
+            },
+        }).done(function(data) {
+            if (data.message.type == 'success') {
+                $('#AccessBox').unblock();
+            }
+            $.notify({
+                title: data.message.title,
+                message: data.message.msg,
+                url: data.message.url,
+                target: data.message.target
+            }, {
+                type: data.message.type
+            });
+        }).fail(function(data) {
+            $.notify({
+                title: data.message.title,
+                message: data.message.msg,
+                url: data.message.url,
+                target: data.message.target
+            }, {
+                type: data.message.type
+            });
+        });
+    });
+    //Change Login
+    $(document).on('click', '#changePassBtn', function(event) {
+        event.preventDefault();
+        var pass1 = $('#PassWordBox [name=password1]').val();
+        var pass2 = $('#PassWordBox [name=password2]').val();
+        if (pass1 == "" || pass2 == "") {
+            $.notify({
+                title: '{{{__ "Warning!"}}}',
+                message: '{{{__ "Password cannot be blank!"}}}'
+            }, {
+                type: 'warning'
+            });
+            form.username.focus();
+            return false;
+        } else {
+            if (pass1 != "" && pass1 == pass2) {
+                if (pass1.length < 8) {
+                    $.notify({
+                        title: '{{{__ "Not Save!"}}}',
+                        message: '{{{__ "Password must contain at least eight characters!"}}}'
+                    }, {
+                        type: 'warning'
+                    });
+                    $('#PassWordBox [name=password1]').focus();
+                } else {
+                    var re = /[0-9]/;
+                    if (!re.test(pass1)) {
+                        $.notify({
+                            title: '{{{__ "Not Save!"}}}',
+                            message: '{{{__ "password must contain at least one number (0-9)"}}}!'
+                        }, {
+                            type: 'warning'
+                        });
+                        $('#PassWordBox [name=password1]').focus();
+                    } else {
+                        var re = /[a-z]/;
+                        if (!re.test(pass1)) {
+                            $.notify({
+                                title: 'Not Save!',
+                                message: 'password must contain at least one lowercase letter (a-z)!'
+                            }, {
+                                type: 'warning'
+                            });
+                            $('#PassWordBox [name=password1]').focus();
+                        } else {
+                            var re = /[A-Z]/;
+                            if (!re.test(pass1)) {
+                                $.notify({
+                                    title: '{{{__ "Not Save!"}}}',
+                                    message: '{{{__ "password must contain at least one uppercase letter (A-Z)"}}}!'
+                                }, {
+                                    type: 'warning'
+                                });
+                                $('#PassWordBox [name=password1]').focus();
+                            } else {
+                                $.ajax({
+                                    url: '/user/change-password',
+                                    type: 'POST',
+                                    data: {
+                                        password: pass1
+                                    },
+                                }).done(function(data) {
+                                    if (data.message.type === 'success') {
+                                        $('#PassWordBox .updateCheck').html('<svg style="color:green;" class="icon-check-circle-2"><use xlink:href="/fonts/icons.svg#icon-check-circle-2"></use></svg>');
+                                    }
+                                    $.notify({
+                                        title: data.message.title,
+                                        message: data.message.msg,
+                                        url: data.message.url,
+                                        target: data.message.target
+                                    }, {
+                                        type: data.message.type
+                                    });
+                                }).fail(function(data) {
+                                    $.notify({
+                                        title: data.message.title,
+                                        message: data.message.msg,
+                                        url: data.message.url,
+                                        target: data.message.target
+                                    }, {
+                                        type: data.message.type
+                                    });
+                                });
+                            }
+                        }
+                    }
+                }
+            } else {
+                $.notify({
+                    title: '{{{__ "Warning!"}}}',
+                    message: '{{{__ "Please check that you\'ve entered and confirmed your password!"}}}'
+                }, {
+                    type: 'warning'
+                });
+                $('#PassWordBox [name=password1]').focus();
+                return false;
+            }
+        }
+    });
+    /**
+     * Change Password
+     *
+     */
+    $(document).on('click', '#changeLoginBtn', function(event) {
+        event.preventDefault();
+        var login = $('#LoginNameBox #newname').val();
+        $.ajax({
+            url: '/user/change-login',
+            type: 'POST',
+            data: {
+                login: login
+            },
+        }).done(function(data) {
+            if (data.message.type === 'success') {
+                $('#LoginNameBox .updateCheck').html('<svg style="color:green;" class="icon-check-circle-2"><use xlink:href="/fonts/icons.svg#icon-check-circle-2"></use></svg>');
+            }
+            $.notify({
+                title: data.message.title,
+                message: data.message.msg,
+                url: data.message.url,
+                target: data.message.target
+            }, {
+                type: data.message.type
+            });
+        }).fail(function(data) {
+            $.notify({
+                title: data.message.title,
+                message: data.message.msg,
+                url: data.message.url,
+                target: data.message.target
+            }, {
+                type: data.message.type
+            });
+        });
+    });
+    /*
+Change pincode
+ */
+    $(document).on('click', '#changePinBtn', function(event) {
+        event.preventDefault();
+        var pin = $('#PinCodeBox [name=pincode]').val();
+        var rpin = $('#PinCodeBox [name=repeat_pincode]').val();
+        if (pin == "" || rpin == "") {
+            $.notify({
+                title: '{{{__ "Warning!"}}}',
+                message: '{{{__ "Pincode cannot be blank!"}}}'
+            }, {
+                type: 'warning'
+            });
+            form.username.focus();
+            return false;
+        } else {
+            if (pin != "" && pin == rpin) {
+                if (pin.length < 6) {
+                    $.notify({
+                        title: '{{{__ "Not Save!"}}}',
+                        message: '{{{__ "Pincode needs to have six characters!"}}}'
+                    }, {
+                        type: 'warning'
+                    });
+                    $('#PinCodeBox [name=pincode]').focus();
+                } else {
+                    var re = /[a-zA-z]/;
+                    if (re.test(pin)) {
+                        $.notify({
+                            title: '{{{__ "Not Save!"}}}',
+                            message: '{{{__ "password must contain only numbers (0-9)!"}}}'
+                        }, {
+                            type: 'warning'
+                        });
+                        $('#PinCodeBox [name=pincode]').focus();
+                    } else {
+                        $.ajax({
+                            url: '/user/change-pincode',
+                            type: 'POST',
+                            data: {
+                                pincode: pin,
+                                repeat_pincode: rpin
+                            },
+                        }).done(function(data) {
+                            if (data.message.type === 'success') {
+                                $('#PinCodeBox .updateCheck').html('<svg style="color:green;" class="icon-check-circle-2"><use xlink:href="/fonts/icons.svg#icon-check-circle-2"></use></svg>');
+                            }
+                            $.notify({
+                                title: data.message.title,
+                                message: data.message.msg,
+                                url: data.message.url,
+                                target: data.message.target
+                            }, {
+                                type: data.message.type
+                            });
+                        }).fail(function(data) {
+                            $.notify({
+                                title: data.message.title,
+                                message: data.message.msg,
+                                url: data.message.url,
+                                target: data.message.target
+                            }, {
+                                type: data.message.type
+                            });
+                        });
+                    }
+                }
+            } else {
+                $.notify({
+                    title: '{{{__ "Warning!"}}}',
+                    message: '{{{__ "Your pincodes don\'t match, try again"}}}'
+                }, {
+                    type: 'warning'
+                });
+            }
+        }
+    });
+});
+</script>

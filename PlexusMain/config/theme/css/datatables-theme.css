@@ -1,0 +1,122 @@
+/* 
+* @Author: JB Stoker
+* @Date:   2016-01-20
+* @Last Modified by:   JB Stoker
+* @Last Modified time: 2016-02-03
+*/
+/* Datatable Theme Styling */
+.dataTables_wrapper .dataTables_paginate {
+  float: right;
+  text-align: right;
+  padding-top: 0.25em;
+}
+.dataTables_wrapper .pagination>li>a:hover, .pagination>li>span:hover, .pagination>li>a:focus, .pagination>li>span:focus {
+    z-index: 3;
+    color: #ffffff;
+    background-color: #2c3e50;
+    border-color: transparent;
+}
+
+.dataTables_wrapper .pagination>.active>a, .pagination>.active>span, .pagination>.active>a:hover, .pagination>.active>span:hover, .pagination>.active>a:focus, .pagination>.active>span:focus {
+    z-index: 2;
+    color: #ffffff;
+    background-color: #2c3e50;
+    border-color: transparent;
+    cursor: default;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+  box-sizing: border-box;
+  display: inline-block;
+  min-width: 1.5em;
+  padding: 0px;
+  margin-left: 2px;
+  text-align: center;
+  text-decoration: transparent !important;
+  cursor: pointer;
+  *cursor: hand;
+  color: #2c3e50 !important;
+  border: 1px solid transparent;
+  border-radius: 2px;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+  color: transparent !important;
+  border: 0px solid #979797;
+  background-color: transparent;
+  background: transparent;
+  /* W3C */
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active {
+  cursor: default;
+  color: transparent !important;
+  border: 0px solid transparent;
+  background: transparent;
+  box-shadow: transparent;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+  color: white !important;
+  border: 0px solid #111;
+  background-color: #384b5f;
+  background: transparent !important;
+  /* W3C */
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button:active {
+  outline: transparent;
+  background-color: #2b2b2b;
+  background: transparent;
+  box-shadow: transparent;
+}
+
+table.dataTable thead .sorting_desc {
+  background-image: none;
+}
+
+table.dataTable thead .sorting_asc {
+  background-image: none;
+}
+
+table.dataTable thead .sorting {
+  background-image: none;
+}
+
+table.dataTable td {
+  vertical-align: middle !important;
+}
+
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
+    padding: 8px;
+    line-height: 1.4;
+    vertical-align: middle!important;
+    border-top: 1px solid #dddddd;
+}
+
+
+.st0{
+  fill:#ffffff;
+}
+td.details-control {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    content: '';
+    background: url('/images/cd-arrow.svg') no-repeat center center;
+    fill:#000000 !important;
+    cursor: pointer;
+}
+tr.shown td.details-control {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
+    content: '';
+    background: url('/images/cd-arrow.svg') no-repeat center center;
+    fill:#000000 !important;
+    cursor: pointer;
+}
+
+/* End Datatables */

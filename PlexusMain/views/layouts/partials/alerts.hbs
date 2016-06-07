@@ -1,0 +1,101 @@
+{{#if success.length}}
+	{{#if success.[0].msg}}
+		<div data-notify="container" class="col-xs-11 col-sm-3 alert fade-in alert-success alert-container" role="alert">
+			<span data-notify="icon"></span>
+			<span data-notify="title"><strong>{{success.[0].title}}</strong></span>
+			<span data-notify="message">{{success.[0].msg}}</span> 
+			
+			{{#if success.[0].bar}}
+			<div class="progress" data-notify="progressbar">
+				<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
+			</div>
+			{{/if}}
+
+			{{#if success.[0].url.length}}
+			<a href="{{success.[0].url}}" target="{{success.[0].target}}" data-notify="url"></a>
+			{{/if}}
+		</div>
+	{{else}}
+	<div data-notify="container" class="col-xs-11 col-sm-3 alert fade-in alert-success alert-container" role="alert">
+			<span data-notify="icon"></span>
+			<span data-notify="title"><strong>{{{__ 'Success'}}}!</strong></span>
+			<span data-notify="message">{{success}}</span> 
+		</div>
+	{{/if}}
+{{/if}}
+{{#if error.length}}
+	{{#if error.[0].msg}}
+	<div data-notify="container" class="col-xs-11 col-sm-3 alert fade-in alert-danger alert-container" role="alert">
+		<span data-notify="icon"></span>
+		<span data-notify="title"><strong>{{error.[0].title}}</strong></span>
+		<span data-notify="message">{{error.[0].msg}}</span> 
+		
+		{{#if error.[0].bar}}
+		<div class="progress" data-notify="progressbar">
+			<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
+		</div>
+		{{/if}}
+
+		{{#if error.[0].url.length}}
+		<a href="{{error.[0].url}}" target="{{error.[0].target}}" data-notify="url"></a>
+		{{/if}}
+	</div>
+	{{else}}
+	<div data-notify="container" class="col-xs-11 col-sm-3 alert fade-in alert-danger alert-container" role="alert">
+		<span data-notify="icon"></span>
+		<span data-notify="title"><strong>{{{__ 'Error'}}}!</strong></span>
+		<span data-notify="message">{{error}}</span>
+	</div>
+	{{/if}}
+{{/if}}
+
+{{#if warning.length}}
+	{{#if warning.[0].msg}}
+	<div data-notify="container" class="col-xs-11 col-sm-3 alert fade-in alert-warning alert-container" role="alert">
+		<span data-notify="icon"></span>
+		<span data-notify="title"><strong>{{warning.[0].title}}</strong></span>
+		<span data-notify="message">{{warning.[0].msg}}</span> 
+		
+		{{#if warning.[0].bar}}
+		<div class="progress" data-notify="progressbar">
+			<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
+		</div>
+		{{/if}}
+
+		{{#if warning.[0].url.length}}
+		<a href="{{warning.[0].url}}" target="{{warning.[0].target}}" data-notify="url"></a>
+		{{/if}}
+	</div>
+	{{else}}
+	<div data-notify="container" class="col-xs-11 col-sm-3 alert fade-in alert-warning alert-container" role="alert">
+		<span data-notify="icon"></span>
+		<span data-notify="title"><strong>{{{__ 'Warning'}}}!</strong></span>
+		<span data-notify="message">{{warning}}</span> 
+	</div>	
+	{{/if}}
+{{/if}}
+{{#if info.length}}
+	{{#if info.[0].msg}}
+	<div data-notify="container" class="col-xs-11 col-sm-3 alert fade-in alert-info alert-container" role="alert">
+		<span data-notify="icon"></span>
+		<span data-notify="title"><strong>{{info.[0].title}}</strong></span>
+		<span data-notify="message">{{info.[0].msg}}</span> 
+		
+		{{#if info.[0].bar}}
+		<div class="progress" data-notify="progressbar">
+			<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
+		</div>
+		{{/if}}
+
+		{{#if info.[0].url.length}}
+		<a href="{{info.[0].url}}" target="{{info.[0].target}}" data-notify="url"></a>
+		{{/if}}
+	</div>
+	{{else}}
+	<div data-notify="container" class="col-xs-11 col-sm-3 alert fade-in alert-info alert-container" role="alert">
+		<span data-notify="icon"></span>
+		<span data-notify="title"><strong>{{{__ 'Info'}}}!</strong></span>
+		<span data-notify="message">{{info}}</span> 
+	</div>
+	{{/if}}
+{{/if}}

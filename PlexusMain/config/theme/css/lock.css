@@ -1,0 +1,177 @@
+/* 
+* @Author: JB Stoker
+* @Date:   2016-02-08
+* @Last Modified by:   JB Stoker
+* @Last Modified time: 2016-05-26 09:25:45
+*/
+.lock-block{
+  max-width:450px;
+  min-height:180px;
+  margin:150px auto 20px auto;
+  background:#384b5f;
+  border-radius:5px;
+  padding:5px;
+}
+
+.lock-block .container{
+  width:100%;
+}
+
+.inner-lock-block{
+  width:100%;
+  min-height:196px;
+  border-radius:4px;
+  border:1px solid #6B8A9C;
+}
+
+.lock-block .lock-user-pic{
+  max-width:108px;
+  height:108px;
+  border:3px solid #ee121e;
+  border-radius:100px;
+  padding:3px;
+  margin:0 auto;
+  margin-bottom:0px;
+  background:#6B8A9C;
+  position:relative;
+  z-index:100;
+}
+
+.lock-block .lock-user-pic img{
+  height:100%;
+  width:auto;
+  border-radius:100px;
+  border:3px solid #fff;
+  background:#6B8A9C;
+}
+
+.lock-block #lock-title{
+  background:#ee121e;
+  display:inline-block;
+  color:#fff;
+  font-weight:300;
+  font-size:25px;
+  width:100%;
+  padding:2%;
+  border-radius:3px;
+  position:relative;
+  z-index:90;
+}
+
+.lock-block .locked-time{    
+    display: inline-block;
+    color: #fff;
+    font-weight: 300;
+    font-size: 19px;
+    padding: 8% 2% 0% 2%;
+    position: relative;
+    z-index: 90;
+}
+
+.lock-block .unlock-form{
+  margin-bottom:50px;
+}
+
+.lock-block .unlock-form input{
+  border:1px solid #6B8A9C;
+  box-shadow:none;
+  font-size:12px;
+}
+
+.lock-block .unlock-form h5{
+  font-size:18px;
+  color:#fff;
+  margin:0px;
+}
+
+.lock-block .unlock-form p{
+  color:#aaa;
+  margin:5px 0px 8px 0px;
+  font-size:13px;
+  font-style:italic;
+}
+
+
+/*Counter css*/
+.countdownHolder{
+  margin:0 auto;
+  font: 40px/1.5 'Open Sans',sans-serif;
+  text-align:center;
+  letter-spacing:-3px;
+}
+
+.position{
+  display: inline-block;
+  height: 1.6em;
+  overflow: hidden;
+  position: relative;
+  width: 1.05em;
+}
+
+.digit{
+  position:absolute;
+  display:block;
+  width:1em;
+  background-color:#fff;
+  border-radius:0.1em;
+  text-align:center;
+  color:#000;
+  letter-spacing:-1px;
+}
+
+.digit.static{
+  box-shadow:1px 1px 1px rgba(4, 4, 4, 0.35);
+  
+  background-image: linear-gradient(bottom, #EFEFEF 50%, #FFFFFF 50%);
+  background-image: -o-linear-gradient(bottom, #EFEFEF 50%, #FFFFFF 50%);
+  background-image: -moz-linear-gradient(bottom, #EFEFEF 50%, #FFFFFF 50%);
+  background-image: -webkit-linear-gradient(bottom, #EFEFEF 50%, #FFFFFF 50%);
+  background-image: -ms-linear-gradient(bottom, #EFEFEF 50%, #FFFFFF 50%);
+  
+  background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0.5, #EFEFEF),
+    color-stop(0.5, #FFFFFF)
+  );
+}
+
+/**
+ * You can use these classes to hide parts
+ * of the countdown that you don't need.
+ */
+
+.countDays{ /* display:none !important;*/ }
+.countDiv0{ /* display:none !important;*/ }
+.countHours{}
+.countDiv1{}
+.countMinutes{}
+.countDiv2{}
+.countSeconds{}
+
+
+.countDiv{
+  display:inline-block;
+  width:16px;
+  height:1.6em;
+  position:relative;
+}
+
+.countDiv:before,
+.countDiv:after{
+  position:absolute;
+  width:5px;
+  height:5px;
+  background-color:#fff;
+  border-radius:50%;
+  left:50%;
+  margin-left:-3px;
+  top:0.5em;
+  box-shadow:1px 1px 1px rgba(4, 4, 4, 0.5);
+  content:'';
+}
+
+.countDiv:after{
+  top:0.9em;
+}

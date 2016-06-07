@@ -1,0 +1,42 @@
+/* 
+* @Author: JB Stoker
+* @Date:   2016-02-09
+* @Last Modified by:   JB Stoker
+* @Last Modified time: 2016-02-09
+*/
+.error-template{
+	padding: 40px 15px;
+ 	font-weight: 500;
+ 	font-size: 2em;
+ 	line-height: 40px;
+}
+.error-template div > svg{
+	height:auto; 
+	width:100%; 
+	fill:red; 
+	float:left;
+}
+#error-text{
+	padding-top: 40px;
+}
+.error-details{
+	padding: 15px 15px;
+}
+.error-details div > svg{
+	height:auto; 
+	width:100%; 
+	fill:red; 
+	float:left;
+}
+.error-button{
+	text-align:center; 
+	padding-top:10px;
+}
+
+@media screen and (max-width: 990px)
+{
+	#error-text{
+		text-align: center;
+		padding-top: 40px;
+	}
+}

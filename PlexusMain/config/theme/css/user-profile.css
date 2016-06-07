@@ -1,0 +1,122 @@
+/* 
+* @Author: JB Stoker
+* @Date:   2016-01-27
+* @Last Modified by:   JB Stoker
+* @Last Modified time: 2016-05-31 21:22:58
+*/
+/*Save Changes buttons */
+#saveChanges{
+    display:none;
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 10%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+#img-upload{
+    width: 10%;
+}  
+
+li { list-style-type:none;}
+/* Thumbnail */
+#profile-image{
+    margin-top: 25px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.file-preview-frame{
+    margin:0 auto;
+    float:none;
+}
+
+/*Details*/
+ul.details{
+	padding:10px 0px 0px 0px;
+}
+ul.details li {
+    margin-bottom: 8px;
+    line-height: 28px;
+    color: #999;
+    float: left;
+    width: 50%;
+}
+ul.details li span {
+    background: #F1F1F1;
+    padding: 6px 10px 5px 10px;
+    border-right: 3px solid #6BBFE0;
+    width: 28%;
+    float: left;
+    font-size: 12px;
+    margin-right: 10px;
+    line-height: 18px;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -o-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    color: #555;
+}
+ul.details li input {
+    background: #ffffff;
+    padding: 6px 10px 5px 10px;
+    width: 68%;
+    height: 28px;
+    float: left;
+    margin: 0px 10px 0px -10px;
+    line-height: 18px;
+    border-radius: 4px;
+    border-left: none;
+    -moz-border-radius: 4px;
+    -o-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    color: #555;
+}
+.btn [class^="icon-"], [class*=" icon-"]{
+    height:20.5px;
+}
+
+/*toggle fix full width column*/
+.form-group{
+    margin-bottom: 15px!important;
+}
+.form-inline .form-group {
+    width:100%;
+}
+.form-inline .form-control {
+    width:100%;
+}
+.file-loading {
+    background:none;
+}
+.file-thumb-loading 
+{
+    background:none;
+}
+.file-uploading 
+{
+    background:none;
+}
+
+.info-text p{
+    word-break: break-word;
+    -ms-word-wrap: break-word;
+    white-space: normal; 
+} 
+
+

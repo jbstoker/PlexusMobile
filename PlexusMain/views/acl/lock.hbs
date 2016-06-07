@@ -1,0 +1,34 @@
+ <!-- Lock block -->
+ <div class="lock-block" id="lock-block" style="display:none; cursor: default">
+	<div class="inner-lock-block">
+		<div class="container">
+			
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<h1 id="lock-title">
+						{{{__ "SESSION LOCKED"}}}
+					</h1>
+					<div class="lock-user-pic">
+						<a href="#"><img src="/uploads/avatar/{{user.avatar}}" height="100%" alt="" class="img-responsive" /></a>
+					</div>
+					<div class="locked-time">
+					</div>	
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<form method="post" action="checkpin" class="unlock-form">
+						<br/>
+						<h5>{{user.name}}</h5>
+						<input type="hidden" class="form-control" name="uid" id="uid" value="{{user.uid}}">
+						<input type="password" maxlength="6" class="form-control" name="pin" id="pinInput" placeholder="{{{__ 'Enter your password or pincode here...'}}}">
+					<div class="row">
+					<br/>
+					<a href="/logout" class="btn btn-sm btn-primary">{{{__ 'Logout'}}}</a>
+					</div>
+					</form>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+ </div>
+

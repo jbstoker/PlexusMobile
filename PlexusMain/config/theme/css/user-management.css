@@ -1,0 +1,15 @@
+/*
+* @Author: JB Stoker
+* @Date:   2016-03-14 12:02:15
+* @Last Modified by:   JB Stoker
+* @Last Modified time: 2016-04-29 14:52:32
+*/
+  .toggle.icon-toggle, .toggle-on.icon-toggle, .toggle-off.icon-toggle { border-radius: 5px; }
+  .toggle.icon-toggle .toggle-handle { border-radius: 5px; }
+  .toggle-on {
+    line-height: 22px !important;
+}
+.toggle-off {
+    line-height: 22px !important;
+}
+  

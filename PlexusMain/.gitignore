@@ -1,0 +1,9 @@
+#Website Plexus
+bower_components/*
+node_modules/*
+public/images/*
+public/javascript/*
+public/stylesheets/*
+public/fonts/*
+npm-debug.log
+public/*

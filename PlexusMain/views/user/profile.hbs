@@ -1,0 +1,331 @@
+<div class="container">
+    <form method="post" action="/update-profile/{{user.uid}}">
+        <div class="row col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <button class="btn btn-sm btn-warning" id="saveChanges">{{{__ "Save Changes"}}}</button>
+            <div class="switch col-xs-2 col-sm-1 col-md-1 col-lg-1 pull-right">
+            <input id="checkbox-toggle" class="checkbox-toggle checkbox-toggle-yes-no show-edit editProfile" type="checkbox">
+            <label  id="togglecheckboxs" for="checkbox-toggle"></label>
+          </div>
+        </div>
+        <br/>
+    <div class="row">     
+      <div class="col-md-4">
+      <div class="row col-xs-12 col-sm-12 col-md-12 col-lg-12" id="profile-image" data-img="{{user.avatar}}" data-x="" data-y="" data-width="" data-height="" data-user="{{user.uid}}">
+      {{#if user.avatar}}
+        <img src="/uploads/avatar/{{user.avatar}}"  width="100%" class="img-responsive img-thumbnail"/>
+      {{else}}
+      <svg  class="icon-id-8" style="height:100%;width:100%;"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/fonts/icons.svg#icon-id-8"></use></svg>
+      {{/if}}
+      </div>
+      <div class="row col-xs-12 col-sm-12 col-md-12 col-lg-12" id="profile-quote">
+        <blockquote>{{user.info.quote}}</blockquote>
+      </div>
+      </div>
+      <div class="col-md-8">
+        <div class="row col-xs-12 col-sm-12 col-md-12 col-lg-12"  id="profile-info">
+          <h3 id="info-title" data-title="{{user.title}}" data-surname="{{user.surname}}" data-middlename="{{user.middlename}}" data-lastname="{{user.lastname}}" data-maidenname="{{user.maidenname}}">{{user.title}} {{user.surname}} {{user.middlename}} {{user.lastname}}{{#if user.maidenname}} - {{user.maidenname}}{{/if}}</h3>
+          <div class="info-text">{{{user.info.personal_text}}}</div>
+        </div>
+{{!-- Full Name --}}
+<div class="row" id="titlerow"></div>
+<div class="row" id="namerow"></div>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+  <hr></hr>
+</div>
+<div class="row">
+  <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6">
+      <div class="input-group input-group-sm" id="birthday-group" data-old="{{birthday}}">
+          <h4><svg class="icon-cake-2"><use xlink:href="/fonts/icons.svg#icon-cake-2"></use></svg>   <span id="birthday-span">{{birthday}}</span></h4> 
+      </div>
+    </div>
+    <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6" id="genderrow" data-text="{{user.gender}}">
+  </div>
+</div>
+<div class="row">
+{{!-- Contact info --}}
+    <div class="form-group col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <div class="input-group input-group-sm" id="phone-group" data-old="{{user.phone}}">
+          <h4 style="white-space:pre;"><svg class="icon-phone-3"><use xlink:href="/fonts/icons.svg#icon-phone-3"></use></svg> <span id="phone-span">{{user.phone}}</span></h4> 
+      </div>
+    </div>
+    <div class="form-group col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <div class="input-group input-group-sm" id="mobile-group" data-old="{{user.mobile}}">
+          <h4 style="white-space:pre;" style="white-space:pre;"><svg class="icon-mobile-phone-1"><use xlink:href="/fonts/icons.svg#icon-mobile-phone-1"></use></svg> <span id="mobile-span">{{user.mobile}}</span></h4> 
+      </div>
+    </div>
+    <div class="form-group col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <div class="input-group input-group-sm" id="email-group" data-old="{{user.email}}">
+          <h4 style="white-space:pre;"><svg class="icon-mail-2"><use xlink:href="/fonts/icons.svg#icon-mail-2"></use></svg> <span id="email-span">{{user.email}}</span></h4> 
+      </div>
+    </div>
+    <div class="form-group col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <div class="input-group input-group-sm" id="website-group" data-old="{{user.website}}">
+          <h4 style="white-space:pre;"><svg class="icon-globe-2"><use xlink:href="/fonts/icons.svg#icon-globe-2"></use></svg> <span id="website-span">{{user.website}}</span></h4> 
+      </div>
+    </div>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="address-hr" style="display:none;">
+  <hr></hr>
+</div>
+<div class="row">
+{{!-- Address --}}
+    <div class="row col-xs-12 col-sm-12 col-md-12 col-lg-12" id='address-row'>
+      <legend>{{{__ 'Address'}}}</legend>
+          <h4 id="address-group"> <span id="street-span">{{user.address.street}}</span> <span id="number-span">{{user.address.number}}</span></h4> 
+          <h4 id="postalcode-group"> <span id="postalcode-span">{{user.address.postalcode}}</span></h4> 
+          <h4 id="city-group"> <span id="city-span">{{user.address.city}}</span></h4> 
+          <h4 id="country-group"> <span id="country-span">{{user.address.country}}</span></h4> 
+    </div>
+    </div>
+      </div>
+      </form>
+</div>
+
+
+
+      </div>
+<!-- End Profile -->
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+    function isUndef(val) {
+        if (val === undefined) {
+            return '';
+        } else {
+            return val;
+        }
+    }
+
+    function doubleDate(val) {
+        if (val < 10) {
+            return '0' + val;
+        } else {
+            return val;
+        }
+    }
+
+
+    //Edit Profile toggle
+    $(".editProfile").click(function(event) {
+        //Check if swicth is selected  
+        if ($(this).prop("checked")) {
+            //Fetch existig data
+            var id = $("#profile-image").attr("data-user");
+            var avatar = $("#profile-image").attr("data-img");
+            var quote = $("#profile-quote blockquote").html();
+            var info = $("#profile-info .info-text").html();
+            var title = $("#info-title").attr("data-title");
+            var surname = $("#info-title").attr("data-surname");
+            var middlename = $("#info-title").attr("data-middlename");
+            var lastname = $("#info-title").attr("data-lastname");
+            var maidenname = $("#info-title").attr("data-maidenname");
+            var gender = $("#genderrow").attr("data-text");
+
+            var birthday = $("#birthday-group #birthday-span").html();
+
+
+
+            var email = $("#email-group").attr('data-old');
+            var phone = $("#phone-group").attr('data-old');
+            var mobile = $("#mobile-group").attr('data-old');
+            var website = $("#website-group #website-span").html();
+            var street = $("#address-group #street-span").html();
+            var number = $("#address-group #number-span").html();
+            var postalcode = $("#postalcode-group #postalcode-span").html();
+            var city = $("#city-group #city-span").html();
+            var country = $("#country-group #country-span").html();
+            var titleelem = '<div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6">' + '<div class="input-group input-group-sm"><span class="input-group-addon profile" style="min-width:100px;" id="title">{{{__ "Title"}}}</span>' + '<select class="form-control" placeholder="title" aria-describedby="title" name="title" data-old="' + isUndef(title) + '">' + '<option value="Ms">{{{__ "Ms"}}}<option value="Miss">{{{__ "Miss"}}}' + '<option value="Mrs">{{{__ "Mrs"}}}' + '<option value="Mr">{{{__ "Mr"}}}' + '<option value="Master">{{{__ "Master"}}}' + '<option value="Rev">{{{__ "Rev (Reverend)"}}}</option>' + '<option value="Fr">{{{__ "Fr (Father)"}}}</option>' + '<option value="Dr">{{{__ "Dr (Doctor)"}}}</option>' + '<option value="Atty">{{{__ "Atty (Attorney)"}}}</option>' + '<option value="Prof">{{{__ "Prof (Professor)"}}}</option>' + '<option value="Hon">{{{__ "Hon (Honorable)"}}}</option>' + '<option value="Pres">{{{__ "Pres (President)"}}}</option>' + '<option value="Gov">{{{__ "Gov (Governor)"}}}</option>' + '<option value="Coach">{{{__ "Coach"}}}' + '<option value="Ofc">{{{__ "Ofc (Officer)"}}}</option>' + "</select></div></div>";
+            var nameelem = '<div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6">' + '<div class="input-group input-group-sm"><span class="input-group-addon profile" style="min-width:100px;" id="surname">{{{__ "Fullname"}}}</span>' + '<input type="text" class="form-control" placeholder="Surname" aria-describedby="surname" name="surname" data-old="' + isUndef(surname) + '" value="' + isUndef(surname) + '">' + '</div></div><div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6"><div class=" input-group-sm">' + '<input type="text" class="form-control" placeholder="Middlename" aria-describedby="middlename" name="middlename" data-old="' + isUndef(middlename) + '" value="' + isUndef(middlename) + '">' + '</div></div><div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6"><div class="input-group-sm">' + '<input type="text" class="form-control" placeholder="Lastname" aria-describedby="lastname" name="lastname" data-old="' + isUndef(lastname) + '" value="' + isUndef(lastname) + '">' + '</div></div><div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6"><div class="input-group-sm">' + '<input type="text" class="form-control" placeholder="Maidenname" aria-describedby="maidenname" name="maidenname" data-old="' + isUndef(maidenname) + '" value="' + isUndef(maidenname) + '"></div></div>';
+            var genderelem = '<div class="btn-group input-group-sm" style="width:100%" id="gendergroup" data-old="' + isUndef(gender) + '">' + '<label class="btn btn-sm btn-default" style="width:33.3333%;"> <input type="radio" id="isMale" name="gender" value="male"/> Male </label>' + '<label class="btn btn-sm btn-default" style="width:33.3333%;"> <input type="radio" id="isFemale" name="gender" value="female"/> Female </label>' + '<label class="btn btn-sm btn-default" style="width:33.3333%;"> <input type="radio" id="isInter" name="gender" value="intersex"/> Intersex </label>' + "</div>";
+            var birthday_group = '<span class="input-group-addon profile" style="min-width:100px;" id="birthday">{{{__ "Birthday"}}}</span><input type="date" class="form-control" placeholder="{{{__ "Birthday"}}}" aria-describedby="birthday" name="birthday" data-old="' + isUndef(birthday) + '" value="' + isUndef(birthday) + '">';
+            var phone_group = '<span class="input-group-addon profile" style="min-width:100px;" id="phone">{{{__ "Phone"}}}</span><input type="tel" class="form-control" placeholder="+31 515552255" aria-describedby="phone" name="phone" data-old="' + isUndef(phone) + '" value="' + isUndef(phone) + '">';
+            var mobile_group = '<span class="input-group-addon profile" style="min-width:100px;" id="mobile">{{{__ "Mobile"}}}</span><input type="tel" class="form-control" placeholder="+31 615552255" aria-describedby="mobile" name="mobile" data-old="' + isUndef(mobile) + '" value="' + isUndef(mobile) + '">';
+            var email_group = '<span class="input-group-addon profile" style="min-width:100px;" id="email">{{{__ "Email"}}}</span><input type="email" class="form-control" placeholder="{{{__ "Email"}}}" aria-describedby="email" name="email" data-old="' + isUndef(email) + '" value="' + isUndef(email) + '">';
+            var website_group = '<span class="input-group-addon profile" style="min-width:100px;" id="website">{{{__ "Website"}}}</span><input type="url" class="form-control" placeholder="{{{__ "http://www.website.com"}}}" aria-describedby="website" name="website" data-old="' + isUndef(website) + '" value="' + isUndef(website) + '">';
+            var address_group = '<span class="input-group-addon profile" style="min-width:100px;" id="address">{{{__ "Address"}}}</span><input type="text" class="form-control" style="width:150%" placeholder="{{{__ "Address"}}}" aria-describedby="address" name="address" data-old="' + isUndef(street) + '" value="' + isUndef(street) + '"><span class="input-group-btn" style="width:0px;"></span><input type="text" class="form-control" style="width:50%; float:right" placeholder="Nr" aria-describedby="number" name="number" data-old="' + isUndef(number) + '" value="' + isUndef(number) + '">';
+            var postalcode_group = '<span class="input-group-addon profile" style="min-width:100px;" id="postalcode">{{{__ "Postalcode"}}}</span><input type="text" class="form-control" placeholder="{{{__ "Postalcode"}}}" aria-describedby="postalcode" name="postalcode" data-old="' + isUndef(postalcode) + '" value="' + isUndef(postalcode) + '">';
+            var city_group = '<span class="input-group-addon profile" style="min-width:100px;" id="city">{{{__ "City"}}}</span><input type="text" class="form-control" placeholder="{{{__ "City"}}}" aria-describedby="city" name="city" data-old="' + isUndef(city) + '" value="' + isUndef(city) + '">';
+            var country_group = '<span class="input-group-addon profile" style="min-width:100px;" id="country">{{{__ "Country"}}}</span><input type="text" class="form-control" placeholder="{{{__ "Country"}}}" aria-describedby="country" name="country" data-old="' + isUndef(country) + '" value="' + isUndef(country) + '">';
+            //Generate input fields for update profile
+            $("#saveChanges").show();
+            $("#profile-quote").html('<textarea maxlength="150" data-old="' + encodeURIComponent(quote) + '" id="personal_quote" name="personal_quote" class="form-control col-md-12" rows="3">' + isUndef(quote) + "</textarea><span class='help-block'>{{{__ "Max. 150 characters."}}}</span>");
+            $("#profile-info").html('<h3 id="info-title">{{{__ "Personal info"}}}</h3><span class="help-block">{{{__ "Max. 750 characters."}}}</span><textarea  data-old="' + encodeURIComponent(info) + '" id="personal_info" name="personal_info" class="summernote form-control col-md-12" rows="5">' + isUndef(info) + "</textarea>");
+            $("#titlerow").html(titleelem);
+            $("#namerow").html(nameelem);
+            $("#genderrow").html(genderelem).show();
+            $("[name=gender][value=" + gender + "]").attr("checked", true);
+            $("[name=title]").val(title);
+            $("#birthday-group").html(birthday_group).attr('data-old', isUndef(birthday));
+            $("#phone-group").html(phone_group);
+            $("#mobile-group").html(mobile_group);
+            $("#email-group").html(email_group);
+            $("#website-group").html(website_group);
+            var addresselem = '<div class="form-group"><div class="input-group input-group-sm">' + address_group + "</div></div>" + '<div class="form-group"><div class="input-group input-group-sm">' + postalcode_group + "</div></div>" + '<div class="form-group"><div class="input-group input-group-sm">' + city_group + "</div></div>" + '<div class="form-group"><div class="input-group input-group-sm">' + country_group + "</div></div>";
+            $("#address-row").html(addresselem);
+            $("#address-hr").show();
+            $("#profile-image").html('<div id="kv-avatar-errors" style="width:100%; display:none"></div><form class="text-center" method="post" enctype="multipart/form-data"><div class="kv-avatar center-block"><input id="avatar" data-old="' + avatar + '" name="avatar" type="file" class="file-loading" data-upload-url="/update-avatar/' + id + '"></div></form>');
+            //Set summernote variables
+            $(".summernote").summernote({
+                fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', 'Helvetica Neue', 'Helvetica', 'Impact', 'Lucida Grande', 'Open Sans', 'Tahoma', 'Times New Roman', 'Verdana'],
+                toolbar: [
+                    ["style", ["bold", "italic", "underline", "clear"]],
+                    ["font", ["strikethrough", "superscript", "subscript"]],
+                    ["fontsize", ["fontsize"]],
+                    ["fontname", ["fontname"]],
+                    ["insert", ["hr", "table"]],
+                    ["color", ["color"]],
+                    ["para", ["ul", "ol", "paragraph"]],
+                    ["height", ["height"]],
+                    ["misc", ["fullscreen"]]
+                ],
+                height: 300,
+                callbacks: {
+                    onKeydown: function(e) {
+                        var text = $(this).parent().find('.note-editor .note-editable').text();
+                        var num = text.length;
+                        var key = e.keyCode;
+                        allowed_keys = [8, 37, 38, 39, 40, 46]
+                        if ($.inArray(key, allowed_keys) != -1) {
+                            return true
+                        }
+                        if (num > 750) {
+                            e.preventDefault();
+                            e.stopPropagation()
+                        }
+                    },
+                    onPaste: function(e) {
+                        $.notify({
+                            title: '{{{__ "Warning!"}}}',
+                            message: '{{{__ "Pasting is not allowed!"}}}',
+                            url: '',
+                            target: ''
+                        }, {
+                            type: 'warning'
+                        });
+                        e.preventDefault();
+                        e.stopPropagation();
+                    }
+                }
+            });
+            if (avatar.length > 0) {
+                var previewAvatar = "<img src='/uploads/avatar/" + avatar + "' class='file-preview-image' id='avatar-img' alt='avatar' title='{{{__ "avatar"}}}'>";
+            } else {
+                var previewAvatar = '<svg class="icon-id-8" style="height:100%;width:100%;"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/fonts/icons.svg#icon-id-8"></use></svg>';
+            }
+            $("#avatar").fileinput({
+                initialPreview: [previewAvatar],
+                overwriteInitial: true,
+                autoReplace: true,
+                initialPreviewShowDelete: false,
+                maxFileSize: 1500,
+                showClose: false,
+                showCaption: false,
+                browseLabel: "",
+                removeLabel: "",
+                uploadLabel: "",
+                browseIcon: '<svg class="icon-photos-1"><use xlink:href="/fonts/icons.svg#icon-photos-1"></use></svg>',
+                removeIcon: '<svg class="icon-cross"><use xlink:href="/fonts/icons.svg#icon-cross"></use></svg>',
+                uploadIcon: '<svg class="icon-upload-5"><use xlink:href="/fonts/icons.svg#icon-upload-5"></use></svg>',
+                removeTitle: "Cancel or reset changes",
+                elErrorContainer: "#kv-avatar-errors",
+                msgErrorClass: "alert alert-block alert-danger",
+                defaultPreviewContent: '<svg class="icon-id-8" style="height:100%; width:100%;"><use xlink:href="/fonts/icons.svg#icon-id-8"></use></svg>',
+                layoutTemplates: {
+                    main2: "{preview} " + " {remove} {browse} {upload}",
+                    footer: '<div class="file-thumbnail-footer">\n' + "    {progress}\n\n" + "</div>",
+                    btnDefault: '<button type="{type}" tabindex="500" title="{title}" class="{css} btn btn-sm btn-danger"{status}>{icon}{label}</button>',
+                    btnLink: '<a href="{href}" tabindex="500" title="{title}" class="{css}  btn btn-sm btn-warning"{status}>{icon}{label}</a>'
+                },
+                allowedFileExtensions: ["jpg", "png", "gif"],
+                uploadExtraData: function() {
+                    return {
+                        x: document.getElementById("profile-image").getAttribute("data-x"),
+                        y: document.getElementById("profile-image").getAttribute("data-y"),
+                        width: document.getElementById("profile-image").getAttribute("data-width"),
+                        height: document.getElementById("profile-image").getAttribute("data-height"),
+                        user: document.getElementById("profile-image").getAttribute("data-user")
+                    };
+                }
+            }).on("fileloaded", function(event, file, previewId, index, reader) {
+                var image = $(".file-preview-image").cropper({
+                    aspectRatio: 200 / 200,
+                    crop: function(data) {
+                        document.getElementById("profile-image").setAttribute("data-x", data.x);
+                        document.getElementById("profile-image").setAttribute("data-y", data.y);
+                        document.getElementById("profile-image").setAttribute("data-width", data.width);
+                        document.getElementById("profile-image").setAttribute("data-height", data.height);
+                    }
+                });
+            }).on("fileuploaded", function(event, data, previewId, index) {
+
+                var url = data.response;
+                setTimeout(function() {
+                    if (url.length > 0) {
+                        var newAvatar = "<img src='/uploads/avatar/" + url + "' alt='avatar' title='avatar'>";
+                    } else {
+                        var newAvatar = '<svg class="icon-id-8" style="height:100%; width:100%; top:-5px; left:-15px;"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/fonts/icons.svg#icon-id-8"></use></svg>';
+                    }
+
+                    $("#profile-image").attr("data-img", url);
+
+                    $('.account a:has(img)').children('img').replaceWith(newAvatar);
+                    $('.account a:has(svg)').children('svg').replaceWith(newAvatar);
+
+                    $("#avatar").attr("data-old", url);
+                    $("#avatar").fileinput("clear").fileinput("refresh", {
+                        initialPreview: ["<img src='/uploads/avatar/" + url + "' class='file-preview-image' id='avatar-img' alt='avatar' title='avatar'>"],
+                        overwriteInitial: true
+                    }).fileinput("enable");
+                }, 100);
+            });
+        } else {
+            //Fetch old data if not saved; Reset
+            var avatar = $("#avatar").attr("data-old");
+            var quote = decodeURIComponent($("#personal_quote").attr("data-old"));
+            var info = decodeURIComponent($("#personal_info").attr("data-old"));
+            var title = $("[name=title]").attr("data-old");
+            var surname = $("[name=surname]").attr("data-old");
+            var middlename = $("[name=middlename]").attr("data-old");
+            var lastname = $("[name=lastname]").attr("data-old");
+            var maidenname = $("[name=maidenname]").attr("data-old");
+            $("#namerow").html("");
+            $("#titlerow").html("");
+            var gender = $("[name=gender]").attr("data-old");
+            var birthday = $("#birthday-group").attr("data-old");
+            var email = $("#email-group").attr("data-old");
+            var phone = $("#phone-group").attr("data-old");
+            var mobile = $("#mobile-group").attr("data-old");
+            var website = $("#website-group").attr("data-old");
+            var address = $("[name=address]").attr("data-old");
+            var number = $("[name=number]").attr("data-old");
+            var postalcode = $("[name=postalcode]").attr("data-old");
+            var city = $("[name=city]").attr("data-old");
+            var country = $("[name=country]").attr("data-old");
+            var birthdayelem = '<h4><svg class="icon-cake-2"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/fonts/icons.svg#icon-cake-2"></use></svg> <span id="birthday-span">' + isUndef(birthday) + "</span></h4>";
+            var emailelem = '<h4 style="white-space:pre;"><svg class="icon-phone-3"><use xlink:href="/fonts/icons.svg#icon-phone-3"></use></svg> <span id="phone-span">' + isUndef(phone) + "</span></h4>";
+            var phoneelem = '<h4 style="white-space:pre;" style="white-space:pre;"><svg class="icon-mobile-phone-1"><use xlink:href="/fonts/icons.svg#icon-mobile-phone-1"></use></svg> <span id="mobile-span">' + isUndef(mobile) + "</span></h4>";
+            var mobileelem = '<h4 style="white-space:pre;"><svg class="icon-mail-2"><use xlink:href="/fonts/icons.svg#icon-mail-2"></use></svg> <span id="email-span">' + isUndef(email) + "</span></h4>";
+            var websiteelem = '<h4 style="white-space:pre;"><svg class="icon-globe-2"><use xlink:href="/fonts/icons.svg#icon-globe-2"></use></svg> <span id="website-span">' + isUndef(website) + "</span></h4>";
+            $("#saveChanges").hide();
+            $("#address-hr").hide();
+            if (avatar.length > 0) {
+                var previewAvatar = "<img src='/uploads/avatar/" + avatar + "' class='img-responsive img-thumbnail' alt='avatar' title='avatar'>";
+            } else {
+                var previewAvatar = '<svg class="icon-id-8" style="height:100%;width:100%;"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/fonts/icons.svg#icon-id-8"></use></svg>';
+            }
+            $("#profile-image").html(previewAvatar);
+            $("#profile-quote").html("<blockquote>" + quote + "</blockquote>");
+            $("#profile-info").html('<h3 id="info-title" data-title="' + isUndef(title) + '" data-surname="' + isUndef(surname) + '" data-middlename="' + isUndef(middlename) + '" data-lastname="' + isUndef(lastname) + '" data-maidenname="' + isUndef(maidenname) + '">' + isUndef(title) + " " + isUndef(surname) + " " + isUndef(middlename) + " " + isUndef(lastname) + " " + isUndef(maidenname) + '</h3><div class="info-text">' + info + "</div>");
+            $("#birthday-group").html(birthdayelem);
+            $("#email-group").html(emailelem);
+            $("#phone-group").html(phoneelem);
+            $("#mobile-group").html(mobileelem);
+            $("#website-group").html(websiteelem);
+            $("#genderrow").hide();
+            addresselem = "<legend>Address</legend>" + '<h4 id="address-group"> <span id="street-span">' + isUndef(address) + '</span> <span id="number-span">' + isUndef(number) + "</span></h4>" + '<h4 id="postalcode-group"> <span id="postalcode-span">' + isUndef(postalcode) + "</span></h4>" + '<h4 id="city-group"> <span id="city-span">' + isUndef(city) + "</span></h4>" + '<h4 id="country-group"> <span id="country-span">' + isUndef(country) + "</span></h4>";
+            $("#address-row").html(addresselem);
+        }
+    });
+});
+    </script>
+
+    

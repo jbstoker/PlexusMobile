@@ -1,0 +1,42 @@
+{
+  "name": "Plexus_Mobile",
+  "version": "0.0.1",
+  "private": false,
+  "description": "Plexus Boileplate opened in Electron and using it to serve content",
+  "main": "main.js",
+  "readme": "README.md",
+  "scripts": {
+    "prestart": "npm run rejoice",
+    "rejoice": "cat x",
+    "start": "node ./start.js",
+    "test": "mocha"
+  },
+  "dependencies": {
+    "electron-prebuilt": "^1.2.1",
+    "jquery": "^2.2.4",
+    "keymaster": "^1.6.2",
+    "lodash": "^4.13.1",
+    "request": "^2.72.0",
+    "strip": "^3.0.0"
+  },
+  "homepage": "https://github.com/jbstoker/Plexus#readme",
+  "author": {
+    "name": "JB Stoker",
+    "email": "jelmer@probomail.nl",
+    "url": "http://stokstylez.nl/"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jbstoker/Plexus.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jbstoker/Plexus/issues"
+  },
+  "keywords": [
+    "plexus",
+    "express",
+    "node",
+    "boilerplate"
+  ]
+}

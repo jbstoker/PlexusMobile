@@ -1,0 +1,62 @@
+/* 
+* @Author: JB Stoker
+* @Date:   2016-01-15
+* @Last Modified by:   JB Stoker
+* @Last Modified time: 2016-01-18
+*/
+#nav-side-toggle {
+  display:none; 
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1169px) {
+
+#nav-side-toggle {
+    position: absolute;
+    left: 110px;
+    top: 32%;
+    display: block;
+    cursor: pointer;
+    padding: 9px 10px;
+    width:45px;
+    height:30px;
+}
+#nav-side-toggle span, #nav-side-toggle span:before, #nav-side-toggle span:after {
+  cursor: pointer;
+  border-radius: 1px;
+  height: 2px;
+  width: 25px;
+  background: #ffffff;
+  position: absolute;
+  display: block;
+  content: '';
+}
+#nav-side-toggle:hover span, #nav-side-toggle:hover span:before, #nav-side-toggle:hover span:after {
+  background: #5F7A92 !important;
+}
+#nav-side-toggle span:before {
+  top: -6px;
+}
+#nav-side-toggle span:after {
+  bottom: -6px;
+}
+
+#nav-side-toggle span, #nav-side-toggle span:before, #nav-side-toggle span:after {
+  transition: all 0.25s;
+}
+#nav-side-toggle.active span:before, #nav-side-toggle.active span:after {
+  left: -4px;
+  width: 14px;
+}
+#nav-side-toggle.active span:before {
+  transform: rotate(45deg);
+  top: -5px;
+  left: 13px;
+}
+#nav-side-toggle.active span:after {
+  transform: rotate(-45deg);
+  top: 5.8px;
+  left: 13px;
+}
+
+
+}

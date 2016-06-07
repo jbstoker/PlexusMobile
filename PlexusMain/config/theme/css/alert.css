@@ -1,0 +1,28 @@
+/*
+* @Author: JB Stoker
+* @Date:   2016-05-14 13:28:05
+* @Last Modified by:   JB Stoker
+* @Last Modified time: 2016-05-28 16:40:12
+*/
+.alert-container {
+    z-index: 9999999 !important;
+    position: absolute !important;
+    display: block !important;
+    float: right !important;
+    width: 45% !important;
+    margin-top: 40px !important;
+    margin-right: 25%!important;
+    top:25px !important;
+    right:25px !important;
+}
+
+.alert > [data-notify="title"] {
+	display: block  !important;
+	font-weight: bold  !important;
+	font-size: 125%  !important;
+	margin-bottom: 5px  !important;
+}
+.alert > [data-notify="message"] {
+	font-size: 110%  !important;
+	font-weight:300  !important;
+}
